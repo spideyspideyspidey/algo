@@ -1,10 +1,18 @@
+
+# RDR scanner based on https://www.t3live.com/blog/scott-redler-rdr-fast-cash-lesson-one/
+# 
+# Looks at stocks with market cap > 1B
+# 
+# TODO: use websocket to poll current-price of ticker so the alerting can happen immediately when the price is reclaimed
+# TODO: add email/text alerting
+#
+
 from numpy import NaN
 import yfinance as yf
 from datetime import date, timedelta
 import datetime as dt
 import websocket
 import json
-
 
 
 f = open("stock-data-all.csv", "r")
@@ -60,7 +68,7 @@ try:
             prevDayLow = data[stock]["Low"][len(data)-2]
             ticker = yf.Ticker(stock).info      # Get current price
             if ticker['dayLow'] < prevDayLow and ticker['regularMarketPrice'] < prevDayLow:
-                f.write("FOUND RDR. Needs to reclaim %f for %s. Current price: %f" % (prevDayLow, stock, ticker['regularMarketPrice']))
+                f.write("FOUND RDR. Needs to reclaim %f for %s. Current price: %f\n" % (prevDayLow, stock, ticker['regularMarketPrice']))
                 print("\t--->> FOUND RDR. Needs to reclaim %f for %s. Current price: %f" % (prevDayLow, stock, ticker['regularMarketPrice']))
 
 except:
