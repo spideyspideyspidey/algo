@@ -3,7 +3,7 @@
 # Looks at stocks with market cap > 5B
 # Tested with python3 
 #
-# TODO: use websocket to poll current-price of ticker so the alerting can happen immediately when the price is reclaimed
+# TODO: use websocket from ws.finnhub.io to poll current-price of ticker so the alerting can happen immediately when the price is reclaimed
 # TODO: add email/text alerting
 #
 
