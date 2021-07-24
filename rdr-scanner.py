@@ -7,7 +7,6 @@
 # TODO: add email/text alerting
 #
 
-
 from numpy import NaN
 import yfinance as yf
 from datetime import date, timedelta
@@ -35,14 +34,12 @@ print(data)
 print("Total number of rows = %d" % len(data))
 
 
-global consecutiveRed
-consecutiveRed = False
-
 try: 
     n = 0
     f = open("trades.txt", "a")
 
     while n < len(data.columns):
+        consecutiveRed = False
         stock = data.columns[n][0]
         for i in range(1, len(data)-1):
             # size = len(data.columns) / 5
