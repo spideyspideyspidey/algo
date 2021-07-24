@@ -1,11 +1,12 @@
-
 # RDR scanner based on https://www.t3live.com/blog/scott-redler-rdr-fast-cash-lesson-one/
 # 
-# Looks at stocks with market cap > 1B
-# 
+# Looks at stocks with market cap > 5B
+# Tested with python3 
+#
 # TODO: use websocket to poll current-price of ticker so the alerting can happen immediately when the price is reclaimed
 # TODO: add email/text alerting
 #
+
 
 from numpy import NaN
 import yfinance as yf
